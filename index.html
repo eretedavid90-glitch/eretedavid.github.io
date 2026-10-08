@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Erete David | Web Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f1ec;--fg:#16202a;--mute:#5b6670;--card:#fff;--line:#d8d4ca;--accent:#1b6ef3;--on:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--fg:#eef1f4;--mute:#9aa6b2;--card:#18212a;--line:#2a3541;--accent:#5b9bff;--on:#0b1016}}
+:root[data-theme="dark"]{--bg:#10161c;--fg:#eef1f4;--mute:#9aa6b2;--card:#18212a;--line:#2a3541;--accent:#5b9bff;--on:#0b1016}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.6 "Bricolage Grotesque",system-ui,sans-serif}
+main{max-width:860px;margin:0 auto;padding:0 20px 60px}
+section{padding:48px 0;border-top:1px solid var(--line)}
+h1{font-size:clamp(44px,12vw,92px);line-height:.95;margin:0 0 20px;font-weight:800;letter-spacing:-.03em}
+h2{font-size:26px;margin:0 0 20px;font-weight:600}
+h3{margin:0 0 4px;font-size:19px}
+p{margin:0 0 14px;max-width:62ch}
+.hero{padding:64px 0 48px;border:0}
+.lead{font-size:20px;color:var(--mute)}
+.btn{display:inline-block;background:var(--accent);color:var(--on);padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:600;margin:6px 8px 0 0}
+.btn.alt{background:transparent;color:var(--fg);border:1px solid var(--line)}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.proj{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.proj .body{padding:16px}
+.shot{height:150px;display:flex;flex-direction:column}
+.bar{height:18px;background:rgba(0,0,0,.18);display:flex;gap:4px;align-items:center;padding-left:8px}
+.bar i{width:6px;height:6px;border-radius:50%;background:#fff8}
+.shot .pg{flex:1;padding:14px;color:#fff;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.pg b{font-size:20px}.pg span{height:8px;border-radius:4px;background:#fff6;width:70%}.pg em{width:64px;height:20px;border-radius:4px;background:#fff;display:block}
+.tag{font-size:14px;color:var(--mute)}
+ul{padding-left:20px;margin:0}li{margin-bottom:8px}
+.contact a{color:var(--accent);font-weight:600}
+footer{color:var(--mute);font-size:14px;padding-top:24px}
+.site{height:210px;display:flex;flex-direction:column;color:#fff}
+.site .nav{display:flex;justify-content:space-between;padding:8px 12px;font-size:12px}
+.site .nav span{opacity:.7}
+.hero2{flex:1;padding:6px 14px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.hero2 strong{font-size:22px;line-height:1.1;max-width:14ch}
+.hero2 em{font-style:normal;background:var(--ac);color:#111;padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600;align-self:flex-start}
+.chips{display:flex;gap:6px;padding:0 12px 12px}
+.chips u{text-decoration:none;font-size:11px;background:#fff2;padding:4px 8px;border-radius:5px}
+.grid2{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))}
+.mk{background:#dfe1e5;border-radius:10px 10px 0 0}
+.chrome{display:flex;gap:5px;align-items:center;padding:8px 10px}
+.chrome i{width:8px;height:8px;border-radius:50%;background:#9aa0a6}
+.url{flex:1;margin-left:8px;background:#fff;border-radius:12px;font-size:11px;color:#5f6368;padding:2px 10px}
+.mpage{background:var(--bg);color:var(--tx);padding:0 14px 14px;font-size:11px;min-height:270px}
+.mnav{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #8883}
+.mnav b{margin-right:auto;font-size:13px;color:var(--ac)}.mnav span{opacity:.75}
+.mnav em{font-style:normal;background:var(--ac);color:#fff;padding:4px 10px;border-radius:4px}
+.mhero{display:flex;gap:12px;align-items:center;padding:16px 0}
+.mhero>div:first-child{flex:1.3}.mhero strong{display:block;font-size:20px;line-height:1.15;margin-bottom:6px}
+.mhero p{margin:0 0 10px;font-size:11px;opacity:.8}
+.mhero u{text-decoration:none;display:inline-block;background:var(--ac);color:#fff;padding:6px 12px;border-radius:5px;font-weight:600}
+.art{flex:1;height:110px;border-radius:10px;background:linear-gradient(135deg,var(--ac),#0004),repeating-linear-gradient(45deg,#fff2 0 8px,#0000 8px 16px);background-blend-mode:overlay}
+.mcards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mc{background:#8881;border:1px solid #8883;border-radius:6px;padding:8px;display:flex;flex-direction:column;gap:3px}
+.mc span{color:var(--ac);font-weight:600}
+.pg2{min-height:290px;font-size:11px;padding:0 14px 14px}
+.pg2 p{margin:0;max-width:none}
+.barber{background:#0d0f12;color:#eee;position:relative;overflow:hidden}
+.bn{display:flex;gap:12px;align-items:center;padding:10px 0;font-size:11px}.bn b{margin-right:auto;font-size:14px;line-height:1;letter-spacing:.08em;color:#f2b134}
+.bh{padding:18px 0 14px;text-align:center}.bh small{opacity:.6}.bh strong{display:block;font-size:26px;line-height:1.05;margin:6px 0 12px;font-weight:800}
+.bh u{text-decoration:none;background:#f2b134;color:#111;padding:6px 14px;border-radius:3px;font-weight:700}
+.pole{position:absolute;right:0;top:60px;width:10px;height:110px;background:repeating-linear-gradient(135deg,#d33 0 6px,#fff 6px 12px,#27c 12px 18px)}
+.bl{max-width:280px;margin:0 auto}.bl p{display:flex;align-items:baseline;gap:6px;padding:5px 0;border-bottom:1px solid #fff2}.bl i{flex:1}.bl b{color:#f2b134}
+.bf{margin-top:12px;text-align:center;opacity:.6}
+.cafe{background:#fbf3ea;color:#2b1a12}
+.cn{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:2px solid #b4531f}.cn b{font:700 16px Georgia,serif;color:#b4531f}
+.cs{display:flex;gap:14px;align-items:center;padding:14px 0}.cplate{width:100px;height:100px;border-radius:50%;background:#fff;border:6px solid #e8cdb3;display:grid;place-items:center;flex:none}.cplate div{width:56px;height:56px;border-radius:50%;background:#b4531f}
+.ct strong{display:block;font:700 19px/1.15 Georgia,serif;margin-bottom:5px}.ct u{text-decoration:none;display:inline-block;margin-top:8px;border:1px solid #b4531f;color:#b4531f;padding:4px 10px;border-radius:20px}
+.cm{display:grid;grid-template-columns:1fr 1fr;gap:16px}.cm h4{margin:0 0 4px;color:#b4531f;font:700 12px Georgia,serif}.cm p{display:flex;gap:4px;padding:2px 0}.cm i{flex:1;border-bottom:1px dotted #b4531f88;transform:translateY(-3px)}
+.chr{margin-top:10px;background:#2b1a12;color:#fbf3ea;text-align:center;padding:5px;border-radius:4px}
+.school{background:#fff;color:#0e2a47;padding:0 0 14px!important}
+.sa{background:#1463a8;color:#fff;text-align:center;padding:4px;margin:0 -14px}
+.sn{display:flex;gap:10px;align-items:center;padding:8px 14px;border-bottom:1px solid #dde}.sn b{margin-right:auto}.sn em{font-style:normal;background:#f2a900;color:#111;padding:3px 10px;border-radius:12px;font-weight:700}
+.logo{width:22px;height:22px;border-radius:6px;background:#1463a8;color:#fff;display:grid;place-items:center;font-weight:700;font-size:10px}
+.sh{background:linear-gradient(120deg,#e6f1fb,#fff);padding:16px 14px}.sh strong{display:block;font-size:20px;line-height:1.15;max-width:18ch;margin-bottom:5px}.sh p{max-width:34ch;opacity:.8}.sh u{display:inline-block;margin-top:8px;text-decoration:none;background:#1463a8;color:#fff;padding:5px 12px;border-radius:5px}
+.ss{display:flex;justify-content:space-around;padding:10px 14px;text-align:center}.ss b{display:block;font-size:17px;color:#1463a8}
+.sp{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 14px}.sp div{border:1px solid #cdd8e4;border-radius:8px;padding:8px;text-align:center;font-weight:600}.sp i{display:block;width:22px;height:22px;border-radius:50%;background:#f2a900;margin:0 auto 4px}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+<h1>Erete David</h1>
+<p class="lead">I build fast, mobile-friendly websites for local businesses and creators.</p>
+<a class="btn" href="#contact">Get a free mockup</a><a class="btn alt" href="#work">See my work</a>
+</section>
+
+<section id="work">
+<h2>Sample projects</h2>
+<div class="grid2">
+<article class="proj"><div class="mk"><div class="chrome"><i></i><i></i><i></i><div class="url">sharpcuts.example</div></div><div class="pg2 barber"><div class="bn"><b>SHARP<br>CUTS</b><span>Services</span><span>Gallery</span><span>Book</span></div>
+<div class="bh"><small>Lagos barbershop since 2016</small><strong>Look sharp.<br>Feel confident.</strong><u>Book your seat</u></div>
+<div class="pole"></div>
+<div class="bl"><p><span>Classic cut</span><i></i><b>₦3,000</b></p><p><span>Beard trim</span><i></i><b>₦1,500</b></p><p><span>Cut + beard</span><i></i><b>₦4,000</b></p></div>
+<div class="bf">Mon-Sat 9am-8pm &nbsp;|&nbsp; Walk-ins welcome</div></div></div><div class="body"><h3>Sharp Cuts</h3><p class="tag">Barbershop website: services, prices, and booking.</p><a class="btn" href="sharp-cuts.html" target="_blank" rel="noopener">View live site</a></div></article>
+<article class="proj"><div class="mk"><div class="chrome"><i></i><i></i><i></i><div class="url">cornercafe.example</div></div><div class="pg2 cafe"><div class="cn"><span>Menu</span><span>Hours</span><b>Corner Café</b><span>Gallery</span><span>Find us</span></div>
+<div class="cs"><div class="cplate"><div></div></div><div class="ct"><strong>Fresh coffee,<br>warm pastries.</strong><p>Sit in, take away, or order ahead.</p><u>View full menu</u></div></div>
+<div class="cm"><div><h4>Coffee</h4><p><span>Cappuccino</span><i></i>₦2,500</p><p><span>Latte</span><i></i>₦2,800</p><p><span>Iced mocha</span><i></i>₦3,200</p></div><div><h4>Bakes</h4><p><span>Croissant</span><i></i>₦1,800</p><p><span>Cinnamon roll</span><i></i>₦2,000</p><p><span>Brunch plate</span><i></i>₦6,000</p></div></div>
+<div class="chr">Open daily 7am - 9pm</div></div></div><div class="body"><h3>Corner Café</h3><p class="tag">Café website: online menu, opening hours, and directions.</p></div></article>
+<article class="proj"><div class="mk"><div class="chrome"><i></i><i></i><i></i><div class="url">brightfuture.example</div></div><div class="pg2 school"><div class="sa">Admissions for the new term are now open</div>
+<div class="sn"><div class="logo">BF</div><b>Bright Future Academy</b><span>About</span><span>Academics</span><span>News</span><em>Apply</em></div>
+<div class="sh"><strong>Learning that grows with your child.</strong><p>Nursery, primary, and secondary education in a safe, caring environment.</p><u>Apply for admission</u></div>
+<div class="ss"><div><b>850</b><span>Students</span></div><div><b>45</b><span>Teachers</span></div><div><b>20</b><span>Years</span></div></div>
+<div class="sp"><div><i></i>Nursery</div><div><i></i>Primary</div><div><i></i>Secondary</div></div></div></div><div class="body"><h3>Bright Future Academy</h3><p class="tag">School website: admissions, programs, and news.</p></div></article>
+</div>
+</section>
+
+<section>
+<h2>My style</h2>
+<p class="lead">I make simple websites with vibrant colors, easy for both adults and children to use. Simple, clean, but very efficient.</p>
+</section>
+
+<section>
+<h2>What I can build for you</h2>
+<ul>
+<li>A one-page website so customers can find your menu, prices, and hours</li>
+<li>A site that loads fast and looks right on phones</li>
+<li>Contact buttons for call, WhatsApp, and directions</li>
+<li>Small fixes and updates to a site you already have</li>
+</ul>
+</section>
+
+<section>
+<h2>How it works</h2>
+<p>You tell me about your business. I send a free mockup. If you like it, I build the full site, you review it, and it goes live.</p>
+</section>
+
+<section id="contact" class="contact">
+<h2>Contact</h2>
+<p>Want a free mockup of your website? Call or message me.</p>
+<p>Phone: <a href="tel:07051581537">07051581537</a></p>
+<footer>© Erete David</footer>
+</section>
+</main>
+</body>
+</html>

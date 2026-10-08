@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sharp Cuts Barbershop</title>
+<meta name="description" content="Clean cuts, hot towel shaves and beard trims. Walk in or book your seat online.">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0f12;--card:#161a20;--fg:#eceef1;--mute:#9aa3ad;--gold:#f2b134;--line:#262c35;--on:#111;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f4ef;--card:#fff;--fg:#14171b;--mute:#5d6671;--gold:#b97d0a;--line:#ddd8cc;--on:#fff}}
+:root[data-theme="light"]{--bg:#f6f4ef;--card:#fff;--fg:#14171b;--mute:#5d6671;--gold:#b97d0a;--line:#ddd8cc;--on:#fff}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.6 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:Oswald,Impact,sans-serif;text-transform:uppercase;letter-spacing:.03em;margin:0}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:18px;height:60px}
+.logo{font:700 22px Oswald,Impact,sans-serif;color:var(--gold);letter-spacing:.1em;margin-right:auto;text-decoration:none}
+nav a{color:var(--fg);text-decoration:none;font-size:15px}
+.btn{display:inline-block;background:var(--gold);color:var(--on);padding:12px 24px;border-radius:4px;font-weight:600;text-decoration:none;border:0;font-size:16px;cursor:pointer}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.hero{padding:90px 0 80px;text-align:center;background:linear-gradient(180deg,#0000,var(--card))}
+.hero small{color:var(--mute);letter-spacing:.15em}
+.hero h1{font-size:clamp(44px,11vw,96px);line-height:1;margin:12px 0 18px}
+.hero p{max-width:46ch;margin:0 auto 26px;color:var(--mute)}
+section{padding:64px 0}
+h2{font-size:34px;margin-bottom:24px;color:var(--gold)}
+.menu{max-width:560px}
+.row{display:flex;align-items:baseline;gap:10px;padding:14px 0;border-bottom:1px solid var(--line)}
+.row .dots{flex:1}
+.row b{color:var(--gold);font-size:18px}
+.row small{display:block;color:var(--mute)}
+.cols{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:20px}
+.box h3{font-size:20px;margin-bottom:6px}
+.box p{margin:0;color:var(--mute)}
+table{border-collapse:collapse;width:100%}td{padding:7px 0;border-bottom:1px solid var(--line)}td:last-child{text-align:right;color:var(--mute)}
+form{display:grid;gap:14px;max-width:520px}
+label{display:grid;gap:5px;font-size:14px;color:var(--mute)}
+input,select{background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:4px;padding:12px;font:inherit}
+.two{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+#done{display:none;margin-top:20px;max-width:520px}
+#done.show{display:block}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-size:14px;text-align:center}
+@media(max-width:560px){nav a.hide{display:none}.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="logo" href="#top">SHARP CUTS</a>
+<a class="hide" href="#services">Services</a><a class="hide" href="#hours">Hours</a><a class="btn" href="#book">Book now</a>
+</nav></div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+<small>BARBERSHOP, LAGOS</small>
+<h1>Look sharp.<br>Feel confident.</h1>
+<p>Clean cuts, hot towel shaves, and beard trims by barbers who care about the details. Walk in or book your seat.</p>
+<a class="btn" href="#book">Book your seat</a>
+</div></div>
+
+<section id="services"><div class="wrap">
+<h2>Services and prices</h2>
+<div class="menu">
+<div class="row"><div>Classic haircut<small>Scissors or clippers, finished with a line-up</small></div><span class="dots"></span><b>₦3,000</b></div>
+<div class="row"><div>Beard trim<small>Shaped and cleaned with a hot towel</small></div><span class="dots"></span><b>₦1,500</b></div>
+<div class="row"><div>Cut + beard<small>The full works</small></div><span class="dots"></span><b>₦4,000</b></div>
+<div class="row"><div>Kids cut<small>Under 12 years</small></div><span class="dots"></span><b>₦2,000</b></div>
+<div class="row"><div>Hot towel shave<small>Classic straight-edge shave</small></div><span class="dots"></span><b>₦2,500</b></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<h2>Why Sharp Cuts</h2>
+<div class="cols">
+<div class="box"><h3>On time</h3><p>Book a seat and we keep it for you. No long waiting.</p></div>
+<div class="box"><h3>Clean tools</h3><p>Every tool is cleaned between customers.</p></div>
+<div class="box"><h3>Your style</h3><p>Bring a photo or ask us. We'll match the look to you.</p></div>
+</div>
+</div></section>
+
+<section id="hours"><div class="wrap">
+<h2>Opening hours</h2>
+<div class="box" style="max-width:380px"><table>
+<tr><td>Monday to Friday</td><td>9am - 8pm</td></tr>
+<tr><td>Saturday</td><td>9am - 9pm</td></tr>
+<tr><td>Sunday</td><td>Closed</td></tr>
+</table></div>
+</div></section>
+
+<section id="book"><div class="wrap">
+<h2>Book your seat</h2>
+<form id="f">
+<label>Your name<input id="n" required autocomplete="name"></label>
+<label>Service<select id="s">
+<option>Classic haircut</option><option>Beard trim</option><option>Cut + beard</option><option>Kids cut</option><option>Hot towel shave</option>
+</select></label>
+<div class="two">
+<label>Date<input id="d" type="date" required></label>
+<label>Time<input id="t" type="time" min="09:00" max="20:00" required></label>
+</div>
+<button class="btn" type="submit">Request booking</button>
+</form>
+<div id="done" class="box">
+<h3>Almost done</h3>
+<p id="sum"></p><br>
+<a id="wa" class="btn" href="#" target="_blank" rel="noopener">Confirm on WhatsApp</a>
+</div>
+</div></section>
+</main>
+
+<footer><div class="wrap">SHARP CUTS BARBERSHOP designed and built by David Erete</div></footer>
+
+<script>
+// Replace with the shop's WhatsApp number in international format, digits only.
+var WHATSAPP = "2347051581537";
+var today = new Date().toISOString().split("T")[0];
+document.getElementById("d").min = today;
+document.getElementById("f").addEventListener("submit", function(e){
+  e.preventDefault();
+  var n = document.getElementById("n").value.trim();
+  var s = document.getElementById("s").value;
+  var d = document.getElementById("d").value;
+  var t = document.getElementById("t").value;
+  var msg = "Hi Sharp Cuts, I'd like to book a " + s + " on " + d + " at " + t + ". Name: " + n + ".";
+  document.getElementById("sum").textContent = s + " on " + d + " at " + t + " for " + n + ".";
+  document.getElementById("wa").href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
+  var box = document.getElementById("done");
+  box.classList.add("show");
+  box.scrollIntoView({behavior:"smooth", block:"center"});
+});
+</script>
+</body>
+</html>
