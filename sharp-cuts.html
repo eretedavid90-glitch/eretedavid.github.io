@@ -94,6 +94,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-si
 <h2>Book your seat</h2>
 <form id="f">
 <label>Your name<input id="n" required autocomplete="name"></label>
+<label>Phone number<input id="p" type="tel" required autocomplete="tel" placeholder="e.g. 0801 234 5678"></label>
 <label>Service<select id="s">
 <option>Classic haircut</option><option>Beard trim</option><option>Cut + beard</option><option>Kids cut</option><option>Hot towel shave</option>
 </select></label>
@@ -101,35 +102,51 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-si
 <label>Date<input id="d" type="date" required></label>
 <label>Time<input id="t" type="time" min="09:00" max="20:00" required></label>
 </div>
-<button class="btn" type="submit">Request booking</button>
+<input type="checkbox" id="bot" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+<button class="btn" type="submit" id="go">Book appointment</button>
 </form>
-<div id="done" class="box">
-<h3>Almost done</h3>
-<p id="sum"></p><br>
-<a id="wa" class="btn" href="#" target="_blank" rel="noopener">Confirm on WhatsApp</a>
-</div>
+<div id="done" class="box" role="status" aria-live="polite"></div>
 </div></section>
 </main>
 
 <footer><div class="wrap">SHARP CUTS BARBERSHOP designed and built by David Erete</div></footer>
 
 <script>
-// Replace with the shop's WhatsApp number in international format, digits only.
-var WHATSAPP = "2347051581537";
-var today = new Date().toISOString().split("T")[0];
-document.getElementById("d").min = today;
+// Get a free access key at web3forms.com (enter your email) and paste it here.
+var ACCESS_KEY = "PASTE_YOUR_WEB3FORMS_KEY_HERE";
+document.getElementById("d").min = new Date().toISOString().split("T")[0];
+var box = document.getElementById("done"), go = document.getElementById("go");
+function say(title, text, ok){
+  box.innerHTML = "";
+  var h = document.createElement("h3"); h.textContent = title; h.style.color = ok ? "var(--gold)" : "inherit";
+  var p = document.createElement("p"); p.textContent = text;
+  box.appendChild(h); box.appendChild(p); box.classList.add("show");
+  box.scrollIntoView({behavior:"smooth", block:"center"});
+}
 document.getElementById("f").addEventListener("submit", function(e){
   e.preventDefault();
-  var n = document.getElementById("n").value.trim();
-  var s = document.getElementById("s").value;
-  var d = document.getElementById("d").value;
-  var t = document.getElementById("t").value;
-  var msg = "Hi Sharp Cuts, I'd like to book a " + s + " on " + d + " at " + t + ". Name: " + n + ".";
-  document.getElementById("sum").textContent = s + " on " + d + " at " + t + " for " + n + ".";
-  document.getElementById("wa").href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
-  var box = document.getElementById("done");
-  box.classList.add("show");
-  box.scrollIntoView({behavior:"smooth", block:"center"});
+  if (document.getElementById("bot").checked) return;
+  if (ACCESS_KEY.indexOf("PASTE") === 0){ say("Booking not set up yet", "Please call the shop to book your seat.", false); return; }
+  var f = {
+    name: document.getElementById("n").value.trim(),
+    phone: document.getElementById("p").value.trim(),
+    service: document.getElementById("s").value,
+    date: document.getElementById("d").value,
+    time: document.getElementById("t").value
+  };
+  go.disabled = true; go.textContent = "Booking...";
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {"Content-Type":"application/json", "Accept":"application/json"},
+    body: JSON.stringify({access_key: ACCESS_KEY, subject: "New booking: " + f.service + " on " + f.date + " at " + f.time, from_name: "Sharp Cuts website", name: f.name, phone: f.phone, service: f.service, date: f.date, time: f.time})
+  }).then(function(r){ return r.json(); }).then(function(r){
+    if (r && r.success){
+      say("Appointment booked ✓", f.service + " on " + f.date + " at " + f.time + ". See you then, " + f.name + "!", true);
+      document.getElementById("f").reset();
+    } else { throw new Error("failed"); }
+  }).catch(function(){
+    say("Something went wrong", "We couldn't save your booking. Please try again or call the shop.", false);
+  }).then(function(){ go.disabled = false; go.textContent = "Book appointment"; });
 });
 </script>
 </body>
